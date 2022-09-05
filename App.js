@@ -1,19 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StyleSheet, View, Text  } from 'react-native';
+import * as React from 'react';
 
-<NavigationContainer>
+import Home from './src/screens/home';
+import Create from './src/screens/create';
+import Edit from './src/screens/edit';
+import Signin from './src/screens/signin';
+import Signup from './src/screens/signup';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
+const Stack =createNativeStackNavigator();
 
-</NavigationContainer>
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on !</Text>
-      <StatusBar style="auto" />
-    </View>
+  const user =false //not authentic
+  return (  
+<NavigationContainer>
+  <Stack.Navigator>
+    {user ? 
+    ( <> 
+      <Stack.Screen name="Home" component= {Home}  />
+     <Stack.Screen name="Create" component={Create} />
+        <Stack.Screen name="Edit" component={Edit} />
+     </>)
+    :
+    ( <>
+    <Stack.Screen name="Signin" component={Signin} options={{headerShown:false}}/>
+        <Stack.Screen name="Signup" component={Signup} />
+    </>)}
+        
+        
+      
+      </Stack.Navigator>
+  </NavigationContainer>
   );
 }
 
