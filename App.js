@@ -1,16 +1,34 @@
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StyleSheet, View, Text  } from 'react-native';
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 
-import Home from './src/screens/home';
 import Create from './src/screens/create';
 import Edit from './src/screens/edit';
+import Home from './src/screens/home';
 import Signin from './src/screens/signin';
 import Signup from './src/screens/signup';
-import { SafeAreaView } from 'react-native-safe-area-context';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
-//theme and design
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCJQguDPJeu8RaYtFGLxuyavxkCguKvJyo",
+  authDomain: "note-app-57933.firebaseapp.com",
+  projectId: "note-app-57933",
+  storageBucket: "note-app-57933.appspot.com",
+  messagingSenderId: "284830822486",
+  appId: "1:284830822486:web:74403964471ef01b4e4bf7",
+  measurementId: "G-LSTWZH2K92"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+//
 const AppTheme= {
 ...DefaultTheme,
 colors:{
