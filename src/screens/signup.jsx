@@ -7,6 +7,14 @@ import { auth,db } from "../../App";
 import Button from "../components/button";
 import Input from "../components/input";
 
+import {  addDoc, 
+      collection,
+      setDoc,
+      doc,
+      onSnapshot,
+     query,
+     where  } from "firebase/firestore"
+
 const gender = ["Male", "Female"];
 
 export default function Signup() {
@@ -18,7 +26,8 @@ export default function Signup() {
 
   const signup =  async() => {
     //create user and email
-   const result= await  createUserWithEmailAndPassword(auth, Email, Password)
+   const result= await  createUserWithEmailAndPassword(auth, Email, Password);
+   
 
         // Signed in
         console.log(result);
