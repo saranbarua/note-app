@@ -1,24 +1,10 @@
 import React, { useState } from "react";
 import {  Text, View, TextInput, StyleSheet, Pressable ,TouchableOpacity} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Button from '../components/button'
-import {getAuth,createUserWithEmailAndPassword} from 'firebase/auth'
+import Button from '../components/button';
 
-import { initializeApp } from "firebase/app";
-const app = initializeApp(firebaseConfig);
-const auth= getAuth(app);
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCJQguDPJeu8RaYtFGLxuyavxkCguKvJyo",
-  authDomain: "note-app-57933.firebaseapp.com",
-  projectId: "note-app-57933",
-  storageBucket: "note-app-57933.appspot.com",
-  messagingSenderId: "284830822486",
-  appId: "1:284830822486:web:74403964471ef01b4e4bf7",
-  measurementId: "G-LSTWZH2K92"
-};
+
 const gender= ['Male','Female']
 
 export default function Signup() {
@@ -29,10 +15,11 @@ const [Name, SetName] =useState("")
 const [Age,SetAge]= useState("");
 
 const signup=()=>{
-createUserWithEmailAndPassword(auth, email, password)
+createUserWithEmailAndPassword(auth, Email, Password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
+    console.log(user)
     // ...
   })
   .catch((error) => {
