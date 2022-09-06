@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
+
+
 import Create from './src/screens/create';
 import Edit from './src/screens/edit';
 import Home from './src/screens/home';
@@ -10,7 +12,6 @@ import Signin from './src/screens/signin';
 import Signup from './src/screens/signup';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -23,12 +24,11 @@ const firebaseConfig = {
   appId: "1:284830822486:web:74403964471ef01b4e4bf7",
   measurementId: "G-LSTWZH2K92"
 };
-
+ // firebase old use better by unig add
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
-//
+//component
 const AppTheme= {
 ...DefaultTheme,
 colors:{
