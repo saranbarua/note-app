@@ -18,6 +18,8 @@ const firebaseConfig = {
   appId: "1:284830822486:web:74403964471ef01b4e4bf7",
   measurementId: "G-LSTWZH2K92"
 };
+
+const app = initializeApp(firebaseConfig);
 //component
 const AppTheme= {
 ...DefaultTheme,

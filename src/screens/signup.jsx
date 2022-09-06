@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import {  Text, View, TextInput, StyleSheet, Pressable ,TouchableOpacity} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Button from '../components/button';
+import Input from '../components/input'
+import {getAuth, createUserWithEmailAndPassword} from "firebase/auth"
 
-
-
+const auth= getAuth();
 const gender= ['Male','Female']
 
 export default function Signup() {
@@ -32,10 +33,10 @@ createUserWithEmailAndPassword(auth, Email, Password)
   
     <SafeAreaView>
       <View style= {{ paddingHorizontal:16,  paddingVertical:25 }}>
-        <TextInput placeholder="Email Address"  onChangeText={(text) => SetEmail(text)} style= {styles.input} />
-        <TextInput placeholder="Password" onChangeText={(text) => SetPassword(text)}  style= {styles.input} secureTextEntry />
-        <TextInput placeholder="Full name"  onChangeText={(text) => SetName(text)} style= {styles.input} />
-        <TextInput placeholder="Age"  onChangeText={(text) => SetAge(text)}  style= {styles.input} />
+        <Input placeholder="Email Address"  onChangeText={(text) => SetEmail(text)} style= {styles.input} />
+        <Input placeholder="Password" onChangeText={(text) => SetPassword(text)}  style= {styles.input} secureTextEntry />
+        <Input placeholder="Full name"  onChangeText={(text) => SetName(text)} style= {styles.input} />
+        <Input placeholder="Age"  onChangeText={(text) => SetAge(text)}  style= {styles.input} />
         <Text style={{ marginBottom: 15, fontWeight:"bold" }}>Select your gender</Text>
 
        {gender.map((Option)=>{

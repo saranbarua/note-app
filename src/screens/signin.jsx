@@ -3,7 +3,7 @@ import { Image, Text, View, TextInput, StyleSheet, Pressable ,TouchableOpacity} 
 import { SafeAreaView } from "react-native-safe-area-context";
 import Button from '../components/button'
 import Signup from "./signup";
-
+import Input from '../components/input'
 export default function Signin({navigation}) {
   return (
     <SafeAreaView>
@@ -17,8 +17,8 @@ export default function Signin({navigation}) {
         </Text>
 
       <View style= {{ paddingHorizontal:16,  paddingVertical:25 }}>
-        <TextInput placeholder="Email Address" style= {styles.input} />
-        <TextInput placeholder="Password" style= {styles.input} secureTextEntry />
+        <Input placeholder="Email Address" style= {styles.input} />
+        <Input placeholder="Password" style= {styles.input} secureTextEntry />
         <Button  title="Login" customStyles={{ marginTop: 25, alignSelf: 'center' }}
                         onPress={"login"} 
                     />
