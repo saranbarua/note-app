@@ -27,7 +27,7 @@ export default function Signup() {
   const signup =  async() => {
     //create user and email
    const result= await  createUserWithEmailAndPassword(auth, Email, Password);
-   
+   const docref= await addDoc(collection(db,'users'))
 
         // Signed in
         console.log(result);
