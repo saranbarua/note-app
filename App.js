@@ -51,15 +51,21 @@ if(user){
   setUser(null)
 }
 })
+return authSubscription; 
   },[])
   return (  
 <NavigationContainer theme={AppTheme}>
   <Stack.Navigator>
     {user ? 
     ( <> 
-      <Stack.Screen name="Home" component= {Home}  />
-     <Stack.Screen name="Create" component={Create} />
-        <Stack.Screen name="Edit" component={Edit} />
+      <Stack.Screen name="Home"  options={{ headerShown: false }}>
+              {props => <Home {...props} user={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="Create">
+              {props => <Create {...props} user={user} />}
+            </Stack.Screen>
+            <Stack.Screen name="Edit" component={Edit} />
+        
      </>)
     :
     ( <>
