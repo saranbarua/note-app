@@ -42,6 +42,7 @@ export default function App() {
   const [loading, setLoading] = React.useState(true);
   const [user , setUser] = React.useState(false);
 
+  //to check login or logout
   React.useEffect(()=>{
 
   },[])
