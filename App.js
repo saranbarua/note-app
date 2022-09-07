@@ -8,7 +8,7 @@ import Home from './src/screens/home';
 import Signin from './src/screens/signin';
 import Signup from './src/screens/signup';
 import { initializeApp } from "firebase/app";
-import { getAuth } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 // import FlashMessage from "react-native-flash-message";
 
@@ -40,11 +40,15 @@ const Stack =createNativeStackNavigator();
 
 export default function App() {
   const [loading, setLoading] = React.useState(true);
-  const [user , setUser] = React.useState(false);
+  const [user , setUser] = React.useState(null);
 
   //to check login or logout
   React.useEffect(()=>{
-
+const authSubscription= onAuthStateChanged(auth,(user)=>{
+if(user){
+  setUser(user)
+}
+})
   },[])
   return (  
 <NavigationContainer theme={AppTheme}>
