@@ -9,8 +9,8 @@ import Signin from './src/screens/signin';
 import Signup from './src/screens/signup';
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
-
-
+import { getFirestore } from 'firebase/firestore';
+// import FlashMessage from "react-native-flash-message";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCJQguDPJeu8RaYtFGLxuyavxkCguKvJyo",
@@ -24,6 +24,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth=getAuth(app);
+export const db = getFirestore(app);
 
 //component
 const AppTheme= {
@@ -57,6 +58,7 @@ export default function App() {
         
       
       </Stack.Navigator>
+   {/* <FlashMessage position="top" /> */}
   </NavigationContainer>
   );
 }

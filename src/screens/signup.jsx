@@ -6,6 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { auth,db } from "../../App";
 import Button from "../components/button";
 import Input from "../components/input";
+// import {showMessage} from "react-native-flash-message"
 
 import {  addDoc, 
       collection,
@@ -25,14 +26,28 @@ export default function Signup() {
   const [Age, SetAge] = useState("");
 
   const signup =  async() => {
-    //create user and email
+
+    try {
+         //create user and email
    const result= await  createUserWithEmailAndPassword(auth, Email, Password);
-   const docref= await addDoc(collection(db,'users'))
-
-        // Signed in
-        console.log(result);
-  };
-
+   console.log(result);
+   await addDoc(collection(db,'users'),{
+     name:Name,
+     email:Email,
+     age:Age,
+     gender:Gender,
+     uid: result.user.uid
+    })
+   
+    } catch (error) {
+      console.log(error);
+      // showMessage({
+      //   message: "error",
+      //   type: "danger"
+      // })
+    }
+ 
+  }
 
   return (
     <SafeAreaView>
