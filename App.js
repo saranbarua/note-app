@@ -41,6 +41,10 @@ const Stack =createNativeStackNavigator();
 export default function App() {
   const [loading, setLoading] = React.useState(true);
   const [user , setUser] = React.useState(false);
+
+  React.useEffect(()=>{
+    
+  })
   return (  
 <NavigationContainer theme={AppTheme}>
   <Stack.Navigator>
