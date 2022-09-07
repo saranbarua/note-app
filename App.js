@@ -47,6 +47,8 @@ export default function App() {
 const authSubscription= onAuthStateChanged(auth,(user)=>{
 if(user){
   setUser(user)
+}else{
+  setUser(null)
 }
 })
   },[])
