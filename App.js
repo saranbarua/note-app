@@ -1,7 +1,7 @@
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet,ActivityIndicator,View  } from 'react-native';
 import Create from './src/screens/create';
 import Edit from './src/screens/edit';
 import Home from './src/screens/home';
@@ -47,12 +47,22 @@ export default function App() {
 const authSubscription= onAuthStateChanged(auth,(user)=>{
 if(user){
   setUser(user)
+  setLoading(false)
+
 }else{
   setUser(null)
 }
 })
 return authSubscription; 
   },[])
+
+  if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator />
+      </View>
+    )
+  }
   return (  
 <NavigationContainer theme={AppTheme}>
   <Stack.Navigator>

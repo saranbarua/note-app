@@ -24,9 +24,11 @@ export default function Signup() {
   const [Password, SetPassword] = useState("");
   const [Name, SetName] = useState("");
   const [Age, SetAge] = useState("");
+  const [loading, setLoading] = React.useState(false)
+
 
   const signup =  async() => {
-
+    setLoading(true)
     try {
          //create user and email
    const result= await  createUserWithEmailAndPassword(auth, Email, Password);
@@ -38,16 +40,17 @@ export default function Signup() {
      gender:Gender,
      uid: result.user.uid
     })
-   
+   setLoading(false)
     } catch (error) {
       console.log(error);
       // showMessage({
       //   message: "error",
       //   type: "danger"
       // })
+      setLoading(false)
+
     }
- 
-  }
+   }
 
   return (
     <SafeAreaView>
@@ -56,6 +59,7 @@ export default function Signup() {
           placeholder="Email Address"
           onChangeText={(text) => SetEmail(text)}
           style={styles.input}
+          autiCapitilize={'none'}
         />
         <Input
           placeholder="Password"
