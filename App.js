@@ -64,7 +64,7 @@ return authSubscription;
   if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator color="blue" size="large" />
+        <ActivityIndicator color="blue" size="large"  />
       </View>
     )
   }
