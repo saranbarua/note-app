@@ -8,7 +8,7 @@ const OPTIONS = ['red', "green", 'blue']
 export default function Create({navigation,route,user}) {
   const [Title, SetTitle] = React.useState('')
   const [Description, SetDescription] = React.useState('')
-  const [noteColor, setNoteColor] = React.useState('white');
+  const [noteColor, setNoteColor] = React.useState('white'); 
   return (
     <SafeAreaView style={{marginHorizontal:20, flex:1}}>
     <View >
