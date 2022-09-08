@@ -8,7 +8,7 @@ import Home from './src/screens/home';
 import Signin from './src/screens/signin';
 import Signup from './src/screens/signup';
 import { initializeApp } from "firebase/app";
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 // import FlashMessage from "react-native-flash-message";
 
@@ -42,6 +42,10 @@ export default function App() {
   const [loading, setLoading] = React.useState(true);
   const [user , setUser] = React.useState(null);
 
+
+  // React.useEffect(()=>{
+  //   signOut(auth);
+  // })
   //to check login or logout
   React.useEffect(()=>{
 const authSubscription= onAuthStateChanged(auth,(user)=>{
@@ -51,6 +55,7 @@ if(user){
 
 }else{
   setUser(null)
+  setLoading(false)
 }
 })
 return authSubscription; 
