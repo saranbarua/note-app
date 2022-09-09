@@ -52,7 +52,7 @@ export default function Signup() {
     }
    }
 
-   
+   //
   return (
     <SafeAreaView>
       <View style={{ paddingHorizontal: 16, paddingVertical: 25 }}>
