@@ -58,6 +58,7 @@ export default function Signup() {
         <Input
           placeholder="Email Address"
     
+          
           onChangeText={(text) => SetEmail(text)}
           style={styles.input}
           autiCapitilize={'none'}
