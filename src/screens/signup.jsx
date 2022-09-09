@@ -57,7 +57,6 @@ export default function Signup() {
       <View style={{ paddingHorizontal: 16, paddingVertical: 25 }}>
         <Input
           placeholder="Email Address"
-    
       
           onChangeText={(text) => SetEmail(text)}
           style={styles.input}
