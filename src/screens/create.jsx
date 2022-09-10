@@ -15,7 +15,7 @@ export default function Create({navigation,route,user}) {
   const [noteColor, setNoteColor] = React.useState('white');
   const [loading, setLoading] = React.useState(false)
 
-   console.log(user.uid)
+  //  console.log(user.uid)
   const onPressCreate= async()=>{
     setLoading(true)
    await addDoc(collection(db,'notes'),{
