@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { SafeAreaView, Text, View,} from "react-native";
+import Button from "../components/button";
 import Input from "../components/input";
 import RadioInput from "../components/radio-input"
 
@@ -32,6 +33,15 @@ export default function Create({navigation,route,user}) {
           setValue={setNoteColor}
           />
         ))}
+
+        <Button 
+        title="submit"
+        customStyles={{
+          marginTop:25,
+          alignSelf: "center",
+          width: "100%"
+        }}
+        />
     </View>
     </SafeAreaView>
 
