@@ -7,6 +7,7 @@ import { SafeAreaView, Text, View,} from "react-native";
 import Button from "../components/button";
 import Input from "../components/input";
 import RadioInput from "../components/radio-input"
+import { showMessage } from "react-native-flash-message";
 
 const OPTIONS = ['red', "green", 'blue']
 export default function Create({navigation,route,user}) {
@@ -24,8 +25,17 @@ export default function Create({navigation,route,user}) {
    color:noteColor,
    uid: user.uid
    })
-  setLoading(false)
+   
+  setLoading(false);
+
+  showMessage({
+    message:'Note Create succesully',
+    type:'success'
+   })
+
+  navigation.goBack();
   }
+
 
   return (
     <SafeAreaView style={{marginHorizontal:20, flex:1}}>

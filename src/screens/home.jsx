@@ -22,7 +22,20 @@ useEffect(()=>{
  return Notelister;
 },[]);
 
-console.log(Notes)
+// console.log(Notes);
+const renderItem = ({ item })=>{
+  const {title,Description,color}= item;
+  return (
+  <Pressable style={{ backgroundColor:color, marginBottom:25, borderRadius:16, padding:15}}>
+    <Text style={{color: 'white' , fontSize: 25 ,fontWeight: 'bold'}}>
+    {title}
+    </Text>
+    <Text style={{color: 'white' , fontSize: 12 ,fontWeight: 'bold'}}>
+    {Description}
+    </Text>
+  </Pressable>)
+}
+
   const onpressToCreate=() => {
     navigation.navigate("Create")
   }
@@ -38,12 +51,11 @@ console.log(Notes)
   <AntDesign name='pluscircle' size={24} ></AntDesign>
   </Pressable>
     </View>
-    <View>
-      <FlatList>
-        
-      </FlatList>
-    </View>
-    
+      <FlatList data={Notes}
+       renderItem={renderItem} 
+       keyExtractor={(item)=> item.title} 
+        contentContainerStyle={{padding:20}}
+      />
    </SafeAreaView>
   );
 }
