@@ -7,7 +7,7 @@ import {AntDesign} from "@expo/vector-icons";
 
 
 export default  function Home({navigation,route,user}) {
-  console.log(user)
+  // console.log(user)
   const onpressToCreate=() => {
     navigation.navigate("Create")
   }
