@@ -15,7 +15,7 @@ useEffect(()=>{
  const Notelister= onSnapshot(que,(querySnapshot)=>{
  const list=[];
   querySnapshot.forEach((doc)=>{
-    list.push(doc.data())
+    list.push({...doc.data(), id:doc.id})
   })
   SetNote(list);
  })
@@ -26,13 +26,17 @@ useEffect(()=>{
 const renderItem = ({ item })=>{
   const {title,Description,color}= item;
   return (
-  <Pressable style={{ backgroundColor:color, marginBottom:25, borderRadius:16, padding:15}}>
+  <Pressable style={{ backgroundColor:color, marginBottom:25, borderRadius:16, padding:15}} 
+    onPress={()=>
+          navigation.navigate("Edit", { item })
+     }>
     <Text style={{color: 'white' , fontSize: 25 ,fontWeight: 'bold'}}>
     {title}
     </Text>
     <Text style={{color: 'white' , fontSize: 12 ,fontWeight: 'bold'}}>
     {Description}
     </Text>
+    
   </Pressable>)
 }
 

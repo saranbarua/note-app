@@ -20,14 +20,12 @@ export default function Create({navigation,route,user}) {
   const onPressCreate= async()=>{
     setLoading(true)
    await addDoc(collection(db,'notes'),{
-    title: Title,
+    Title: Title,
     Description:Description,
    color:noteColor,
    uid: user.uid
-   })
-   
+   }) 
   setLoading(false);
-
   showMessage({
     message:'Note Create succesully',
     type:'success'
@@ -70,7 +68,6 @@ export default function Create({navigation,route,user}) {
         onPress={onPressCreate}/>
     </View>
     </SafeAreaView>
-
   );
 }
 
