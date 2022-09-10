@@ -32,7 +32,7 @@ export default function Signup() {
     try {
          //create user and email
    const result= await  createUserWithEmailAndPassword(auth, Email, Password);
-   console.log(result);
+  //  console.log(result);
    await addDoc(collection(db,'users'),{
      name:Name,
      email:Email,
