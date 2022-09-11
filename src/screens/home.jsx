@@ -22,18 +22,19 @@ import { db } from '../../App';
 },[]);
 
 // console.log(Notes);
-const renderItem = ({ item }) =>{
-  const {title, Description, color} = item;
+const renderItem = ({ item }) => {
+  const { title, Description, color } = item;
   return (
   <Pressable style={{ backgroundColor:color, marginBottom:25, borderRadius:16, padding:15}} 
-    onPress={()=>
+    onPress = {() =>{
         navigation.navigate("Edit", { item })
-     }>
+     }}>
+    
    <Pressable style={{ position: 'absolute', alignSelf: 'flex-end' ,padding:20 , zIndex:4}} 
    onPress={()=>{
   deleteDoc(doc(db, "notes", item.id))
    }} >
- <AntDesign name='delete' size={24} color='white'/>
+ <AntDesign name='delete' size={24} color='white'/> 
    </Pressable>
          
     <Text style={{color: 'white' , fontSize: 25 ,fontWeight: 'bold'}}>

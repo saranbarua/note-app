@@ -10,18 +10,17 @@ import RadioInput from "../components/radio-input"
 import { showMessage } from "react-native-flash-message";
 
 const OPTIONS = ['red', "green", 'blue']
-     export default function Edit ({navigation, route,user}) {
-       const noteItem = route.params.item;
-       const [title, SetTitle] = useState(noteItem.title) 
-      const [Description, SetDescription] = useState(noteItem.Description)
-       const [noteColor, setNoteColor] = useState(noteItem.color);
-       const [loading, setLoading] = useState(false)
+     export default function Edit ({navigation, route, user }) {
+        const noteItem = route.params.item;
+        const [title, SetTitle] = useState(noteItem.title) 
+        const [Description, SetDescription] = useState(noteItem.Description)
+        const [noteColor, setNoteColor] = useState(noteItem.color);
+        const [loading, setLoading] = useState(false);
 
        const onPressUpdate= async()=>{
         const noteref= doc(db, "notes", noteItem.id)
 
-
-      setLoading(true);
+        setLoading(true);
       try { 
          await updateDoc(doc(db,"notes", noteItem.id),{
          title: title,
@@ -45,18 +44,19 @@ const OPTIONS = ['red', "green", 'blue']
     <SafeAreaView style={{marginHorizontal:20, flex:1}}>
         <Input
           placeholder="Title"
-          onChangeText={(text) => SetTitle(text)} value ={ title}
-        />
+          onChangeText={(text) => SetTitle(text)} value = { title } >
+            </Input>
           <Input
           placeholder="Description"
           onChangeText={(text) => SetDescription(text)}
           multiline={true}
-          value ={Description}
+          value = {Description }
         />
         <View>
         <Text style={{ marginBottom: 15, fontWeight: "bold" }}>
           Select your Note Color.....
         </Text>
+
         {OPTIONS.map((option,index)=>(
           <RadioInput key={index}
           label={option}
@@ -72,7 +72,8 @@ const OPTIONS = ['red', "green", 'blue']
           alignSelf: "center",
           width: "100%"
         }}
-        onPress={onPressUpdate}/>
+        onPress={onPressUpdate}
+        />
     </SafeAreaView>
   );
   }
