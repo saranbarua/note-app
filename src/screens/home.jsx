@@ -22,9 +22,11 @@ import { db } from '../../App';
 },[]);
 
 // console.log(Notes);
-const renderItem = ({ item }) => {
-  const { title, Description, color } = item;
-  return (
+    const renderItem = ({ item }) => {
+    const { title, Description, color } = item;
+     return (
+
+      
   <Pressable style={{ backgroundColor:color, marginBottom:25, borderRadius:16, padding:15}} 
     onPress = {() =>{
         navigation.navigate("Edit", { item })
