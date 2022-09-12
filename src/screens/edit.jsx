@@ -40,6 +40,8 @@ const OPTIONS = ['red', "green", 'blue']
     navigation.goBack();
  }
 
+ 
+
   return (
     <SafeAreaView style={{marginHorizontal:20, flex:1}}>
         <Input
