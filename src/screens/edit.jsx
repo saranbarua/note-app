@@ -44,7 +44,7 @@ const OPTIONS = ['red', "green", 'blue']
     <SafeAreaView style={{marginHorizontal:20, flex:1}}>
         <Input
           placeholder="Title"
-          onChangeText={(text) => SetTitle(text)} value = {title } >
+          onChangeText={(text) => SetTitle(text)} value =  {title} >
             </Input>
           <Input
           placeholder="Description"
