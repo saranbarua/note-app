@@ -27,11 +27,10 @@ import { db } from '../../App';
           const { title, Description, color } = item;
      return (
 
-
-  <Pressable style={{ backgroundColor:color, marginBottom:25, borderRadius:16, padding:15}} 
-    onPress = {() =>{
-        navigation.navigate("Edit", { item })
-     }}>
+       <Pressable style={{ backgroundColor:color, marginBottom:25, borderRadius:16, padding:15}} 
+              onPress = {() =>{
+              navigation.navigate("Edit", { item })
+                 }}>
     
    <Pressable style={{ position: 'absolute', alignSelf: 'flex-end' ,padding:20 , zIndex:4}} 
    onPress={()=>{
