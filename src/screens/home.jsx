@@ -31,7 +31,6 @@ import { db } from '../../App';
               onPress = {() =>{
               navigation.navigate("Edit", { item })
                  }}>
-
      <Pressable style={{ position: 'absolute', alignSelf: 'flex-end' ,padding:20 , zIndex:4}} 
               onPress={()=>{
                deleteDoc(doc(db, "notes", item.id))
