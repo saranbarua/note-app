@@ -38,8 +38,9 @@ import { db } from '../../App';
      <AntDesign name='delete' size={24} color='white'/> 
      </Pressable>
          
+
     <Text style={{color: 'white' , fontSize: 25 ,fontWeight: 'bold'}}>
-    {title}
+      {title}
     </Text>
     <Text style={{color: 'white' , fontSize: 12 ,fontWeight: 'bold'}}>
     {Description}
